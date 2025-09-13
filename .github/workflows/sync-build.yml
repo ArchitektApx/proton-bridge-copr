@@ -14,9 +14,11 @@ jobs:
       needs_update: ${{ steps.check-version.outputs.needs_update }}
       BRIDGE_VER: ${{ steps.check-version.outputs.BRIDGE_VER }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: recursive
+          fetch-depth: 0
+          fetch-tags: true
       - name: check for new upstream version
         id: check-version
         run: |
@@ -45,7 +47,7 @@ jobs:
     if: needs.sync-upstream.outputs.needs_update == 'true'
     permissions:
       contents: write
-    runs-on: ubuntu-22.04-arm
+    runs-on: ubuntu-24.04-arm
     env:
       BRIDGE_VER: ${{ needs.sync-upstream.outputs.BRIDGE_VER }}
     outputs:
@@ -84,8 +86,8 @@ jobs:
           go-version: '1.21.9'
           cache: true
 
-      - name: Install ARM Qt 6.8.2
-        uses: ArchitektApx/install-qt-action@v4
+      - name: Install ARM Qt^ 6.8.2
+        uses: jurplel/install-qt-action@v4
         with:
           cache: true
           version: 6.8.2
@@ -129,11 +131,12 @@ jobs:
         run: |
           echo "VCPKG_BINARY_SOURCES=clear;x-gha,readwrite" >> "$GITHUB_ENV"
           echo "VCPKG_FORCE_SYSTEM_BINARIES=1" >> "$GITHUB_ENV"
+          
   
       - name: Run Build
         run: |
           cd proton-bridge
-          make build
+          make build     
 
       - name: Rename/Repack Build Artifact
         run: |
