@@ -66,6 +66,10 @@ gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 /usr/lib/%{short_name}/bridge
 
 %changelog
+* Sun Sep 14 2025 ArchitektApx <architektapx@gehinors.ch> - 3.21.2
+- Fixed
+- BRIDGE-406: Fixed faulty certificate chain validation logic. Made certificate pin checks exclusive to leaf certificates.
+
 * Sun Sep 07 2025 ArchitektApx <architektapx@gehinors.ch> - 3.21.2
 - Fixed
 - BRIDGE-406: Fixed faulty certificate chain validation logic. Made certificate pin checks exclusive to leaf certificates.
