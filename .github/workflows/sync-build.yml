@@ -101,7 +101,10 @@ jobs:
             ninja-build \
             libglvnd-dev \
             libsecret-1-dev \
-            pkg-config
+            pkg-config \
+            libfido2-dev \
+            libcbor-dev \
+            libssl-dev
 
       - name: Install Ruby and fpm for packaging
         run: |
