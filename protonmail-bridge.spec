@@ -3,13 +3,13 @@
 %global             debug_package %{nil}
 
 Name:               protonmail-bridge
-Version:            3.23.1
+Version:            3.24.2
 Release:            1%{?dist}
 Summary:            Proton Mail Bridge for Linux (aarch64)
 
 License:            GPLv3
 URL:                https://proton.me/mail/bridge
-Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.23.1/protonmail-bridge-linux-arm64.tar.gz
+Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.24.2/protonmail-bridge-linux-arm64.tar.gz
 Source1:            protonmail-bridge
 
 ExclusiveArch:  aarch64
@@ -66,6 +66,10 @@ gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 /usr/lib/%{short_name}/bridge
 
 %changelog
+* Wed Apr 29 2026 ArchitektApx <architektapx@gehinors.ch> - 3.24.2
+- Changed
+- BRIDGE-535: Use new base golang version based on Debian Bullseye.
+
 * Tue Mar 24 2026 ArchitektApx <architektapx@gehinors.ch> - 3.23.1
 - Fixed
 - BRIDGE-488: Restore previous RemoveFromMailbox behavior (< 3.23.0). Drafts moved to trash should not be perma-deleted.
