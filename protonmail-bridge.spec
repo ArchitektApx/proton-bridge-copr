@@ -3,13 +3,13 @@
 %global             debug_package %{nil}
 
 Name:               protonmail-bridge
-Version:            3.24.2
+Version:            3.25.0
 Release:            1%{?dist}
 Summary:            Proton Mail Bridge for Linux (aarch64)
 
 License:            GPLv3
 URL:                https://proton.me/mail/bridge
-Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.24.2/protonmail-bridge-linux-arm64.tar.gz
+Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.25.0/protonmail-bridge-linux-arm64.tar.gz
 Source1:            protonmail-bridge
 
 ExclusiveArch:  aarch64
@@ -66,6 +66,31 @@ gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 /usr/lib/%{short_name}/bridge
 
 %changelog
+* Thu Jun 11 2026 ArchitektApx <architektapx@gehinors.ch> - 3.25.0
+- Added
+- BRIDGE-519: Include recipients address in an errormapped error.
+- BRIDGE-547: Automatically retry failing tests on CI.
+- BRIDGE-511: Include the full error-chain when an update fails to install.
+- BRIDGE-139: New test that checks the validity of KB article URLs.
+- BRIDGE-531: New modernize linter and CI go:fix piplines added.
+- BRIDGE-559: NoSuchUser error gets mapped to a user friendly message.
+- Changed
+- BRIDGE-534: Usage of exp/maps replaced with maps from standard library.
+- BRIDGE-526: Go toolchain bump to 1.26.2.
+- BRIDGE-514: Map API validation errors to a more user-friendly error.
+- BRIDGE-528: Removed old legacy versioner utility & legacy updater logic.
+- BRIDGE-486: Removed stale feature flags.
+- BRIDGE-483: Patch vulnerabilities for March 2026.
+- BRIDGE-548: Modify message building MIME boundary generation logic (stochastic).
+- Fixed
+- BRIDGE-557: Change Local Cache uses QFileDialog instead of Qt.Quick Folder Dialog.
+- BRIDGE-540: Runtime index out of bounds error during build stage.
+- BRIDGE-515: Replace old go syntax using go:fix to match new go 1.26 syntax.
+- BRIDGE-503: Dependencies update and updated deprecated functions.
+- BRIDGE-512: Attachment filenames are sanitized in user debug mode.
+- BRIDGE-415: Remove temporary directory after update installation on macOS.
+- BRIDGE-499: Correct error value gets logged when building a RFC822 message.
+
 * Wed Apr 29 2026 ArchitektApx <architektapx@gehinors.ch> - 3.24.2
 - Changed
 - BRIDGE-535: Use new base golang version based on Debian Bullseye.
