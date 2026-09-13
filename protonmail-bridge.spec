@@ -3,13 +3,13 @@
 %global             debug_package %{nil}
 
 Name:               protonmail-bridge
-Version:            3.25.0
+Version:            3.26.0
 Release:            1%{?dist}
 Summary:            Proton Mail Bridge for Linux (aarch64)
 
 License:            GPLv3
 URL:                https://proton.me/mail/bridge
-Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.25.0/protonmail-bridge-linux-arm64.tar.gz
+Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.26.0/protonmail-bridge-linux-arm64.tar.gz
 Source1:            protonmail-bridge
 
 ExclusiveArch:  aarch64
@@ -66,6 +66,31 @@ gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 /usr/lib/%{short_name}/bridge
 
 %changelog
+* Sun Sep 13 2026 ArchitektApx <architektapx@gehinors.ch> - 3.26.0
+- Added
+- BRIDGE-576: Added logging to current auth session ID.
+- BRIDGE-568: Added meta+W shortcut to close the main window.
+- BRIDGE-571: Added a marker for the initial eventID during sync.
+- Changed
+- BRIDGE-601: Calendar Event doesn't mutate a copy in go-proton-api.
+- BRIDGE-602: Remove unused worker-pool implementation in go-proton-api.
+- BRIDGE-603: Removed unused futures implementation in go-proton-api.
+- BRIDGE-611: HV requests resolve to correct API environment.
+- BRIDGE-587: Vulnerabilities Patched July 2026.
+- BRIDGE-581: Replaced FILENAME_VARIABLE with OUTPUT_SCRIPT for bridge-gui.
+- BRIDGE-574: Go Toolchain bump to 1.26.4.
+- BRIDGE-577: Replaced gomock with uber-go/mock.
+- BRIDGE-555: Go Toolchain bump to 1.26.3 & Vulnerabilities patched for June 2026.
+- BRIDGE-582: Empty address list now returns nil instead of empty list per RFC 3501.
+- BRIDGE-610: Literals are now structurally compared if byte-for-byte comparison fails.
+- BRIDGE-558: Orphaned unencrypted vaults are now deleted once keychain access is gained.
+- Fixed
+- BRIDGE-612: Fixed a crash on macOS 27.
+- BRIDGE-608: Fixed an issue with sync_test that doesn't panic. Proper event resolution for SyncFinished event in UserRefreshEvent test.
+- BRIDGE-608: Fixed wait time for TestBridge_SendInvite test.
+- BRIDGE-561: Fixed an issue where in-flight cancelled request caused a connection-down status.
+- BRIDGE-563: Fixed an issue where cpu and memory where unbounded in the rfcparser for Gluon.
+
 * Thu Jun 11 2026 ArchitektApx <architektapx@gehinors.ch> - 3.25.0
 - Added
 - BRIDGE-519: Include recipients address in an errormapped error.
