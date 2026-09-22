@@ -3,13 +3,13 @@
 %global             debug_package %{nil}
 
 Name:               protonmail-bridge
-Version:            3.26.0
+Version:            3.27.0
 Release:            1%{?dist}
 Summary:            Proton Mail Bridge for Linux (aarch64)
 
 License:            GPLv3
 URL:                https://proton.me/mail/bridge
-Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.26.0/protonmail-bridge-linux-arm64.tar.gz
+Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.27.0/protonmail-bridge-linux-arm64.tar.gz
 Source1:            protonmail-bridge
 
 ExclusiveArch:  aarch64
@@ -66,6 +66,24 @@ gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 /usr/lib/%{short_name}/bridge
 
 %changelog
+* Tue Sep 22 2026 ArchitektApx <architektapx@gehinors.ch> - 3.27.0
+- Added
+- Added the expected mock for properly reported errors from Gluon.
+- BRIDGE-616: Maximum MIME structure depth added.
+- Changed
+- BRIDGE-622: Patch vulnerabilities August 2026.
+- BRIDGE-619: Gluon's apply sentry reporting is gated behind a feature-flag.
+- Separate context with timeout used in session.done() handler.
+- External WKD keys are not used if they cant be imported.
+- BRIDGE-621: Silence Vulnerabilities August 2026.
+- Fixed
+- BRIDGE-627: Return RFC3501 compliant response for body-fld-enc & body-fld-param.
+- Fixed an E2E test case; expect human verification when signing in with wrong credentials.
+- BRIDGE-614: Read onDiskLiteral in applyMessageUpdated before any DB transactions.
+- Fixed a deadlock contention in collector_test.
+- BRIDGE-618: UpdateRemoteMessageID used the correct SQL table.
+- BRIDGE-615: RemoveMessagesFromMailbox uses proper chunked ids.
+
 * Sun Sep 13 2026 ArchitektApx <architektapx@gehinors.ch> - 3.26.0
 - Added
 - BRIDGE-576: Added logging to current auth session ID.
