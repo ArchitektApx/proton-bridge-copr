@@ -3,13 +3,13 @@
 %global             debug_package %{nil}
 
 Name:               protonmail-bridge
-Version:            3.27.0
+Version:            3.27.1
 Release:            1%{?dist}
 Summary:            Proton Mail Bridge for Linux (aarch64)
 
 License:            GPLv3
 URL:                https://proton.me/mail/bridge
-Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.27.0/protonmail-bridge-linux-arm64.tar.gz
+Source0:            https://github.com/ArchitektApx/proton-bridge-copr/releases/download/v3.27.1/protonmail-bridge-linux-arm64.tar.gz
 Source1:            protonmail-bridge
 
 ExclusiveArch:  aarch64
@@ -66,6 +66,10 @@ gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 /usr/lib/%{short_name}/bridge
 
 %changelog
+* Fri Oct 09 2026 ArchitektApx <architektapx@gehinors.ch> - 3.27.1
+- Fixed
+- BRIDGE-644: Recover from corrupted sync state file; force file sync during write.
+
 * Tue Sep 22 2026 ArchitektApx <architektapx@gehinors.ch> - 3.27.0
 - Added
 - Added the expected mock for properly reported errors from Gluon.
